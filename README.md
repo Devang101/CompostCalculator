@@ -1,2 +1,2 @@
 # CompostCalculator
-A webapp to user's compost better!
+A webapp to help users compost better!
