@@ -7,3 +7,6 @@ the files to look at/modify are:
 app->controllers->piles_controller.rb
 app->views->piles->new.html.erb
 config->routes.rb
+
+Adapted from:
+https://www.youtube.com/watch?v=VPor5ErX_90
