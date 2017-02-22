@@ -1,0 +1,9 @@
+Simple form is a test rails app that let's us play around with the form functionality that we'll end up using in the "add to pile page", where we will have a "material type" drop down box and a "volume/mass" text field. Right now, it prints submissions after the user hits 'create pile'.
+
+To do:
+button that on click creates more drop down menus/text fields so user can input many compost ingredients/volumes at once. 
+
+the files to look at/modify are:
+app->controllers->piles_controller.rb
+app->views->piles->new.html.erb
+config->routes.rb
