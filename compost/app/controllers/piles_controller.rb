@@ -1,0 +1,2 @@
+class PilesController < ApplicationController
+end

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @piles = @user.piles.paginate(page: params[:page])
   end
 
   def new
