@@ -3,14 +3,18 @@
 <html>
   <head>
     <title><%= yield(:title) %> | Compost App</title>
+        <style>.jumbotron{ background-size: 100%, 100%;
+              background-image:url("<%= asset_path( 'cosmosflowers.jpg' ) %>");}
+
+             h2{color:white;}}
+        </style>
   </head>
   <body>
     <div class="center jumbotron">
-  	<h1>Welcome to the Compost App</h1>
+  	<h1>Welcome to the Compost Calculator </h1>
 
   	<h2>
-    	This is the home page for the
-    	compost application.
+    	We're here to help you compost better.
   	</h2>
 
   	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
