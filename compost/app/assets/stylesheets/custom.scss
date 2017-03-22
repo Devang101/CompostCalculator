@@ -181,9 +181,9 @@ input {
   }
 }
 
-/* microposts */
+/* piles */
 
-.microposts {
+.piles {
   list-style: none;
   padding: 0;
   li {
@@ -193,6 +193,14 @@ input {
   .user {
     margin-top: 5em;
     padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
   }
   .timestamp {
     color: $gray-light;

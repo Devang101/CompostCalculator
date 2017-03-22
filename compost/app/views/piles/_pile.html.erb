@@ -1,7 +1,9 @@
 <li id="pile-<%= pile.id %>">
-  <%= link_to gravatar_for(pile.user, size: 50), pile.user %>
+  <%= link_to gravatar_for(pile.user), pile.user %>
   <span class="user"><%= link_to pile.user.name, pile.user %></span>
   <span class="timestamp">
     Last Updated <%= time_ago_in_words(pile.updated_at) %> ago.
+    <%= link_to "delete", pile, method: :delete,
+                                data: { confirm: "You sure?" } %>
   </span>
 </li>
