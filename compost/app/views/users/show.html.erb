@@ -4,7 +4,7 @@
     <section class="user_info">
       <h1>
       	<%= gravatar_for @user %>
-        <%= @user.name %>
+        <%= @user.name %> 's Pile Dashboard
       </h1>
     </section>
   </aside>
@@ -13,6 +13,7 @@
       <h3>Piles (<%= @user.piles.count %>)</h3>
       <ol class="piles">
         <%= render @piles %>
+        
       </ol>
     <% end %>
   </div>

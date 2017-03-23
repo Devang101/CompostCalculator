@@ -143,15 +143,6 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
 
 /* forms */
 
@@ -166,20 +157,7 @@ input {
   height: auto !important;
 }
 
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
 
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
-}
 
 /* piles */
 
@@ -207,13 +185,14 @@ input {
     display: block;
     margin-left: 60px;
   }
+
+
   .gravatar {
     float: left;
     margin-right: 10px;
-    margin-top: 5px;
+    
   }
 }
-
 aside {
   textarea {
     height: 100px;
@@ -227,7 +206,6 @@ span.picture {
     border: 0;
   }
 }
-
 
 
 

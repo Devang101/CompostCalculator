@@ -1,7 +1,7 @@
 <%= form_for(@pile) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new pile..." %>
+    <%= f.text_area :content, placeholder: "Give your pile a name..." %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%= f.submit "Create new pile", class: "btn btn-primary" %>
 <% end %>
