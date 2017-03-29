@@ -23,6 +23,15 @@ class PilesController < ApplicationController
       @piles = Pile.paginate(:page => params[:page], :per_page => 5)
     end
 
+		def show
+			@pile = current_user.piles.find_by(id: params[:id])
+			if @pile.nil?
+				redirect_to root_url
+			else
+				redirect_to
+			end
+		end
+
   	private
 
     def pile_params

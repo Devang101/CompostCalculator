@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :piles,          only: [:create, :destroy]
+  resources :piles,          only: [:create, :destroy, :show]
   resources :users
-  
+  resources :stats
+
 end
