@@ -3,7 +3,7 @@ Enter the type and volume of each material:
 <hr>
 <%= form_for @pile do |f| -%>
 	Material: <%= f.select :pilematerial, ['fruitscraps', 'manure', 'grass', 'sawdust'], :prompt => 'Select One' %> <br/>
-	Volume: <%= f.text_field :pilevolume %> <br />
+	Mass: <%= f.text_field :pilevolume %> <br />
 	<%= f.submit %>
 
 <% end -%>
