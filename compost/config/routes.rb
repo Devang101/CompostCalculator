@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'users/new'
-  
+
   get 'piles/stats'
 
   root 'static_pages#home'
@@ -17,6 +17,4 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :piles,          only: [:create, :destroy, :show]
   resources :users
-  resources :stats
-
 end
