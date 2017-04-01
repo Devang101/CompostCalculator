@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'users/new'
+  
+  get 'piles/stats'
 
   root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'
