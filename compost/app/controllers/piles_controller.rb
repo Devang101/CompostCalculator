@@ -26,6 +26,7 @@ class PilesController < ApplicationController
 
 
 
+
   def update
     @pile = Pile.find(params[:id])
     if @pile.update_attributes(pile_params)
@@ -34,6 +35,15 @@ class PilesController < ApplicationController
       render 'add'
     end
   end
+
+		def show
+			@pile = current_user.piles.find_by(id: params[:id])
+			if @pile.nil?
+				redirect_to root_url
+			else
+				redirect_to
+			end
+		end
   	private
 
     def pile_params
