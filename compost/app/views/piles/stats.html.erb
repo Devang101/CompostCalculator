@@ -1,2 +1,14 @@
 <h1> Stats </h1>
-<p> SWAG SWAG GANG GANG</p>
+
+<p> TURNED LOG:</p>
+<% TurnLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).each do |turn| %>
+<p><li><%="Date: #{turn.updated_at}" %></li></p>
+<% end %>
+
+<p> TEMPERATURE LOG:</p>
+<%= line_chart TempLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).pluck(:updated_at, :temperature), xtitle: "Date", ytitle: "Temperature" %>
+<% TempLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).each do |temp| %>
+<p><li><%="Temperature: #{temp.temperature} | Date: #{temp.updated_at}" %></li></p>
+<% end %>
+
+<p> <%= "C/N Ratio: #{Pile.find(params[:pile_id]).CN_ratio}"%></p>
