@@ -1,0 +1,2 @@
+class TurnLog < ApplicationRecord
+end
