@@ -12,7 +12,7 @@ class PilesController < ApplicationController
       		render 'static_pages/home'
     	end
   	end
-    
+
   	def destroy
       @pile.destroy
       flash[:success] = "Pile deleted"
@@ -22,10 +22,6 @@ class PilesController < ApplicationController
     def index
       @piles = Pile.paginate(:page => params[:page], :per_page => 5)
     end
-
-
-
-
 
   def update
     @pile = Pile.find(params[:id])
