@@ -23,13 +23,27 @@ class PilesController < ApplicationController
   end
 
   def update
-		@pile = Pile.find(params[:id])
-    if @pile.update_attributes(pile_params)
-      # Handle a successful update.
-    else
-      render 'add'
-    end
-  end
+		# @pile = Pile.find_by("id = ? AND user_id = ?", params[:pile][:pile_id], params[:pile][:user_id])
+		# newRatio = 0
+		# if(params[:pile][:content] == "Fruit waste")
+		# 	# if @pile.CN_ratio == nil
+		# 	# 	currentCN = 0
+		# 	# else
+		# 	currentCN = @pile.CN_ratio
+		# 	# end
+		# 	currentVol = @pile.volume
+		# 	currentC = currentCN * currentVol
+		# 	currentN = currentVol - currentC
+		# 	newRatio = (currentC + 35.0) / (currentN + 1.0)
+		# end
+		#
+		# if pile.save
+		# 	flash[:success] = "Updated CN Ratio!"
+		# 	redirect_to({:controller => 'piles', :action => 'stats', :user_id => params[:pile][:user_id], :pile_id => params[:pile][:pile_id]})
+		# else
+		# 	redirect_to(root_url)
+		# end
+	end
 
 	def show
 		@pile = current_user.piles.find_by(id: params[:id])
@@ -42,7 +56,7 @@ class PilesController < ApplicationController
   	private
 
     def pile_params
-      params.require(:pile).permit(:content)
+      params.require(:pile).permit(:content, :volume, :user_id, :pile_id)
     end
 
     def correct_user

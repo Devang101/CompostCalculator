@@ -1,8 +1,4 @@
 <h1> Stats </h1>
-<<<<<<< HEAD
-<p> SWAG SWAG GANG GANG</p>
-=======
-
 <p> TURNED LOG:</p>
 <% TurnLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).each do |turn| %>
 <p><li><%="Date: #{turn.updated_at}" %></li></p>
@@ -15,4 +11,21 @@
 <% end %>
 
 <p> <%= "C/N Ratio: #{Pile.find(params[:pile_id]).CN_ratio}"%></p>
->>>>>>> origin/stats
+
+<p> Update Temperature </p>
+<p>
+  <section class="TempLog_form">
+    <div class = "hide" > <%= @TempLog = TempLog.new(user_id: params[:user_id], pile_id: params[:pile_id]) %> </div>
+    <%= form_for @TempLog do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      Latest Temperature: <%= f.text_area :temperature, placeholder: "Input last Temperature reading"%>
+      <div class = "hide">
+      user_id: <%= f.text_area :user_id, placeholder: "Input last Temperature reading"%>
+      pile_id: <%= f.text_area :pile_id, placeholder: "Input last Temperature reading"%>
+      </div>
+    </div>
+    <%= f.submit "Update Temperature" %>
+    <% end %>
+  </section>
+</p>

@@ -10,7 +10,7 @@
   </span>
 
   <span class = "modify">
-  	<%= link_to "Add to pile", add_path%>
+  	<%= link_to('Add to pile', {:controller => 'piles', :action => 'add', :user_id => pile.user.id, :pile_id => pile.id})%>
   </span>
   <span class = "view">
     <%= link_to('View Pile Statistics',{:controller => 'piles', :action => 'stats', :user_id => pile.user.id, :pile_id => pile.id})%>

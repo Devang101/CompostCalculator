@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   get 'users/new'
 
   get 'piles/stats'
+  get 'piles/add'
 
   root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'
-  get  '/add',     to: 'piles#add'
+  # get  '/add',     to: 'piles#add'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
   get  '/signup',  to: 'users#new'
@@ -18,4 +19,5 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :piles,          only: [:create, :destroy, :show]
   resources :users
+  resources :temp_logs
 end
