@@ -40,7 +40,6 @@ class PilesController < ApplicationController
 		end
 	end
   	private
-
     def pile_params
       params.require(:pile).permit(:content)
     end

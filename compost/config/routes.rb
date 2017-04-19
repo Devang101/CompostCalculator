@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :piles,          only: [:create, :destroy, :show]
   resources :users
+  resources :temp_logs
 end
