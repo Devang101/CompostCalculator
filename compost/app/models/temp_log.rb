@@ -1,0 +1,2 @@
+class TempLog < ApplicationRecord
+end

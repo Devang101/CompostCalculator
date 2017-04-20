@@ -1,0 +1,22 @@
+<% provide(:title, "add to your pile!") %>
+<!DOCTYPE html>
+<html>
+  <body >
+    <img src="<%= asset_path( 'leaves.jpg' ) %>" style="width:100% ;height:200px;">
+    <section class="add_form">
+      <div class = "hide" > <%= @pile = Pile.find_by("id = ? AND user_id = ?", params[:pile_id], params[:user_id]) %> </div>
+        <%= form_for  @pile do |f| %>
+		      <%= render 'shared/error_messages', object: f.object %>
+		        <div class="field">
+              Material Type: <%= f.select :content, ['Fruit waste', 'Leaves', 'Wood chips', 'Straw', 'Saw dust', 'Coffee grounds', 'Food waste', 'Grass', 'Vegetable scraps'], :prompt => 'Select One' %>
+              Mass of Material:  <%= f.text_area :volume, placeholder: "Input Mass (kg)" %>
+              <div class = "hide">
+              user_id: <%= f.text_area :user_id%>
+              id: <%= f.text_area :id%>
+              </div>
+            </div>
+          <%= f.submit "Add material(s)", class: "btn btn-primary" %>
+          <% end %>
+    </section>
+  </body>
+</html>

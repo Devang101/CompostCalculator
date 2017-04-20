@@ -1,16 +1,14 @@
 <li id="pile-<%= pile.id %>">
   <%= link_to gravatar_for(pile.user), pile.user %>
   <span class="user"><%= link_to pile.user.name, pile.user %></span>
-    <span class="content"><%= pile.content %></span>
+    <span class="content"><%= pile.name %></span>
   <span class="timestamp">
     Last Updated <%= time_ago_in_words(pile.updated_at) %> ago.
     <%= link_to "delete", pile, method: :delete,
                                 data: { confirm: "You sure?" } %>
-
   </span>
-
   <span class = "modify">
-  	<%= link_to "Add to pile" %>
+  	<%= link_to('Add To Pile',{:controller => 'piles', :action => 'add', :user_id => pile.user.id, :pile_id => pile.id})%>
   </span>
   <span class = "view">
     <%= link_to('View Pile Statistics',{:controller => 'piles', :action => 'stats', :user_id => pile.user.id, :pile_id => pile.id})%>
