@@ -18,9 +18,9 @@
 <% latestTemp = TempLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).last %>
 <% if  latestTemp == nil%>
 <%= "Input the latest temperature if the pile to recieve more recommendations" %>
-<% elsif latestTemp.temperature < 49.0 %>
+<% elsif latestTemp.temperature < 40.0 %>
 <%= "The temperature of this pile is too low, you should turn it soon."%>
-<% elsif latestTemp.temperature > 77.0 %>
+<% elsif latestTemp.temperature > 60.0 %>
 <%="The temperature of this pile is too high, you should turn it soon." %>
 <%else%>
 <%="The temperature of the pile is NICE!"%>
