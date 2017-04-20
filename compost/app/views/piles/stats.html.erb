@@ -1,17 +1,42 @@
 <h1> Stats </h1>
+<p> RECOMMENDATIONS:</p>
+<p>
 
-<p> TURNED LOG:</p>
-<% TurnLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).each do |turn| %>
-<p><li><%="Date: #{turn.updated_at}" %></li></p>
-<% end %>
+<% cn_ratio = Pile.find(params[:pile_id]).CN_ratio %>
+<% if  cn_ratio == nil%>
+<%= "Add materials to this pile to recieve recommendations" %>
+<% elsif cn_ratio < 25.0 %>
+<%= "Your Carbon to Nitrogen ratio is too low, try adding the following: Fruit waste, Leaves, Wood chips, Straw, Saw dust, Vegetable scraps" %>
+<% elsif cn_ratio > 30.0 %>
+<%="Your Carbon to Nitrogen ratio is too high, try adding the following: Coffee grounds, Food waste, Grass, Vegetable scraps" %>
+<%else%>
+<%= "The Carbon to Nitrogen ratio of you Pile is looking good!"%>
+<% end%>
+</p>
+
+<p>
+<% latestTemp = TempLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).last %>
+<% if  latestTemp == nil%>
+<%= "Input the latest temperature if the pile to recieve more recommendations" %>
+<% elsif latestTemp.temperature < 49.0 %>
+<%= "The temperature of this pile is too low, you should turn it soon."%>
+<% elsif latestTemp.temperature > 77.0 %>
+<%="The temperature of this pile is too high, you should turn it soon." %>
+<%else%>
+<%="The temperature of the pile is NICE!"%>
+<% end%>
+</p>
+
+<p> <%= "C/N Ratio: #{cn_ratio}"%></p>
+
+
 
 <p> TEMPERATURE LOG:</p>
-<%= line_chart TempLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).pluck(:updated_at, :temperature), xtitle: "Date", ytitle: "Temperature" %>
+<%= line_chart TempLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).pluck(:updated_at, :temperature), xtitle: "Date", ytitle: "Temperature (°C)" %>
+<!-- Uncomment to see all TempLogs
 <% TempLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).each do |temp| %>
 <p><li><%="Temperature: #{temp.temperature} | Date: #{temp.updated_at}" %></li></p>
-<% end %>
-
-<p> <%= "C/N Ratio: #{Pile.find(params[:pile_id]).CN_ratio}"%></p>
+<% end %> -->
 
 <p> Update Temperature </p>
 <p>
@@ -22,11 +47,18 @@
     <div class="field">
       Latest Temperature: <%= f.text_area :temperature, placeholder: "Input last Temperature reading"%>
       <div class = "hide">
-      user_id: <%= f.text_area :user_id, placeholder: "Input last Temperature reading"%>
-      pile_id: <%= f.text_area :pile_id, placeholder: "Input last Temperature reading"%>
+      user_id: <%= f.text_area :user_id, placeholder: "Input last Temperature reading in degrees Celcius"%>
+      pile_id: <%= f.text_area :pile_id, placeholder: "Input last Temperature reading in degrees Celcius"%>
       </div>
     </div>
     <%= f.submit "Update Temperature" %>
     <% end %>
   </section>
 </p>
+
+<%= link_to "Add to this pile" , {:controller => 'piles', :action => 'add', :user_id => params[:user_id], :pile_id => params[:pile_id]} %>
+
+<!-- <p> TURNED LOG:</p>
+<% TurnLog.where("pile_id = ? AND user_id = ?", params[:pile_id], params[:user_id]).each do |turn| %>
+<p><li><%="Date: #{turn.updated_at}" %></li></p>
+<% end %> -->

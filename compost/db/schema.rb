@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401035653) do
+ActiveRecord::Schema.define(version: 20170420025005) do
 
-  create_table "piles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "piles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.float    "CN_ratio",   limit: 24
     t.float    "volume",     limit: 24
+    t.string   "name"
     t.index ["user_id", "created_at"], name: "index_piles_on_user_id_and_created_at", using: :btree
     t.index ["user_id"], name: "index_piles_on_user_id", using: :btree
   end
 
-  create_table "temp_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "temp_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "temperature"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -31,14 +32,14 @@ ActiveRecord::Schema.define(version: 20170401035653) do
     t.integer  "user_id"
   end
 
-  create_table "turn_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "turn_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "pile_id"
     t.integer  "user_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",      null: false
