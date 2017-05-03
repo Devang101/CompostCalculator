@@ -1,6 +1,9 @@
 # CompostCalculator
 
-TODO: Write a project description
+Imagine one day you decide to apply your talents at composting; however are unsure how to compost successfully. Well the Compost Calculator is here to help! The goal of the Compost Calculator is to help composters maintain and track their compost piles so that they can produce high quality compost.  All the user has to do is sign up, create a compost pile, and update their virtual pile according to what they put in their pile in real life. Along the way the Compost Calculator will give the user recommendations on how to achieve the highest quality compost. The Compost Calculator aims to help users achieve the correct ratio of carbon to nitrogen, which is typically between 25:1 and 30:1, and ensure that their pile is within an optimal temperature range. This app is geared towards small scale composters, like home gardeners or students in dorms. 
+
+The product description as provided by our client is as follows:
+“It would be useful to have an interface that could inform students of the amount and a type of material to add to optimize composting conditions. In addition, it could be nice for this interface to inform students when they should turn compost so it can maintain the optimal 40-60 C temperature (see http://compost.css.cornell.edu/physics.html). Since we are beginning a student composting initiative at Harvey Mudd, this resource will likely be very valuable to students managing compost.” ~ Zach Evans, contact for ESW/MOSS
 
 ## Installation
 
@@ -19,7 +22,7 @@ TODO: Write a project description
 
 ## Usage
 
-TODO: Write usage instructions
+![Usage](usage.png)
 
 ## Contributing
 
