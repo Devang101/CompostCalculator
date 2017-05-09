@@ -10,10 +10,8 @@ The product description as provided by our client is as follows:
 1. Clone the repo to your desktop.
 2. Type 'brew -v' into the terminal. If it is uninstalled, run 
  `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-3. Install Ruby on Rails, if uninstalled.
- mac: https://gorails.com/setup/osx/10.12-sierra windows: http://railsinstaller.org/en ubuntu: https://gorails.com/setup/ubuntu/16.04
-4. You need to make sure you have MySQL installed on your laptop: `brew install mysql` followed by `mysql.server start`
-5. Once MySQL is installed; you need to start up MySQL as the root user: `mysql -u root`
+3. You need to make sure you have MySQL installed on your laptop: `brew install mysql` followed by `mysql.server start`
+4. Once MySQL is installed; you need to start up MySQL as the root user: `mysql -u root`
 5. Create a local database called CompostCalc_development: `CREATE DATABASE CompostCalc_development;`
 6. Create a user called user1 and set up a password: `CREATE USER 'user1'@'localhost' IDENTIFIED BY 'password';`
 7. Grant privileges for that user (user1) on the database of interest: `GRANT ALL PRIVILEGES ON CompostCalc_development.* TO 'user1'@'localhost';`
