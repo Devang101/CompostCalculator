@@ -26,6 +26,9 @@ The product description as provided by our client is as follows:
 
 ![Usage](usage.png)
 
+## Current Known Issues
+1. While adding elements of a compost pile, if a non-integer is entered for contents weight, it corrupts the pile's contents.
+
 ## Contributing
 
 1. Fork it!
